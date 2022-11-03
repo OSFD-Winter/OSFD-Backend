@@ -1,6 +1,7 @@
 # OSFD-Backend
 
-
+change env file to .env
+<br>
 nvm use 14.4.0
 <br>
 npm run start:dev
