@@ -14,7 +14,7 @@ npm run start:dev
 
 Send Taner your github username to be added to the repo, you'll receive an invite through email.
 
-First, get the latest code by pulling while on the `master` branch, `git pull origin master`
+First, get the latest code by pulling while on the `main` branch, `git pull origin main`
 
 Make your commits on a new branch. Checkout your branch with a name related to what changes you are making, like:
 
@@ -38,6 +38,6 @@ When ready for code review, push to github and make a merge request. Then messag
 
 Make sure to pull to merge the latest code before pushing to avoid merge conflicts
 
-`git pull origin master` while on your branch
+`git pull origin main` while on your branch
 
 
