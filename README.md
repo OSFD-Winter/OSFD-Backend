@@ -4,6 +4,8 @@ change env file to .env
 <br>
 nvm use 14.4.0
 <br>
+npm i
+<br>
 npm run start:dev
 <br>
 
