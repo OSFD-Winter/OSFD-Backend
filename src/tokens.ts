@@ -1,7 +1,11 @@
 // @ts-nocheck
 import express from "express";
 import * as admin from "firebase-admin";
+
 import dotenv from "dotenv"
+const tokenClient = process.env.TOKEN_CLIENT;
+const DaoAbi = process.env.DAO_ABI;
+
 const { v4: uuidv4 } = require('uuid');
 import { Web3Storage, getFilesFromPath } from 'web3.storage'
 
@@ -13,7 +17,7 @@ const StreamZip = require('node-stream-zip');
 const request = require('request');
 const fs = require('fs');
 const images = require("images");
-const client = new Web3Storage({ token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDQ4MkNiNjBCNDBlM2U4RmU0Njk4YkY2ZDZmYThlMzNEQjE0Rjc1MWMiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NjA5MTAxMTkyNjksIm5hbWUiOiJ0ZXN0In0.3EWNRJl1uCi9y_dTDn4Zj2c3-VXJ0_MPeGM4GOo9Ruo" })
+const client = new Web3Storage({ tokenClient })
 
 const Web3 = require('web3');
 
@@ -24,8 +28,7 @@ dotenv.config()
 const web3 = new Web3(new Web3.providers.HttpProvider(`https://eth-goerli.g.alchemy.com/v2/yZIdvCyYdidI1nxEKQeR4mCPmkqP2gS5`));
 
 const daoFactory = new web3.eth.Contract(
-  DAOFactoryAbi,
-  '0x1FC3e350392a8963828A997Efc657E09DFc66692'
+  DAOFactoryAbi, {DaoAbi}
 );
 
 // function to encode file data to base64 encoded string
