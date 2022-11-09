@@ -28,7 +28,7 @@ dotenv.config()
 const web3 = new Web3(new Web3.providers.HttpProvider(`https://eth-goerli.g.alchemy.com/v2/yZIdvCyYdidI1nxEKQeR4mCPmkqP2gS5`));
 
 const daoFactory = new web3.eth.Contract(
-  DAOFactoryAbi, {DAO_FACTORY_ADDRESS}
+  DAOFactoryAbi, { DAO_FACTORY_ADDRESS }
 );
 
 // function to encode file data to base64 encoded string
@@ -148,7 +148,7 @@ tokens.get("/token/:hash&:tokenId", async (req, res) => {
             for (const entry of Object.values(zip.entries())) {
               console.log(entry.name);
               if (((entry.name.match(/\//g) || []).length > 2) || (!entry.isDirectory && !(entry.name.endsWith('png') || entry.name.endsWith('jpg')))) {
-                if (!entry.name.startsWith("__MACOSX")) {
+                if (!entry.name.startsWith("__MACOSX") && !entry.name.includes(".DS_Store")) {
                   fs.unlink("./" + zipName, (err => {
                     if (err) console.log(err);
                   }));
@@ -159,7 +159,7 @@ tokens.get("/token/:hash&:tokenId", async (req, res) => {
                 }
               }
 
-              if (!(entry.name.startsWith("__MACOSX"))) {
+              if (!(entry.name.startsWith("__MACOSX")) && !entry.name.includes(".DS_Store")) {
                 if (!entry.isDirectory) {
                   let e = (entry.name).split('/')
 
@@ -195,7 +195,7 @@ tokens.get("/token/:hash&:tokenId", async (req, res) => {
             for (let i = 1; i < comp.length; i++) {
               composition = composition.draw(images(comp[i]), 0, 0)
             }
-            
+
             composition.save("./composed/" + imageName, {
               quality: 50
             });
