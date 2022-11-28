@@ -42,7 +42,6 @@
     "node-fetch": "^2.6.6",
     "node-stream-zip": "^1.15.0",
     "request": "^2.88.2",
-    "socket.io": "^3.0.1",
     "uuid": "^8.3.2",
     "web3": "^1.8.0",
     "web3.storage": "^4.4.0"
